@@ -51,6 +51,7 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
       @organization = Organization.find(params[:organization_id])
+      s3_service.set_bucket(@organization.bucket_name)
     end
 
     def set_post
